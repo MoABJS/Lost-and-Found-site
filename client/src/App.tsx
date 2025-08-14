@@ -1,7 +1,15 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import Navbar from "./components/Navbar";
+import LandingPage from "./Pages/LandingPage";
+
 function App() {
   return (
     <div>
-      <h1 className="text-center">Hello I'm going to start my project</h1>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
