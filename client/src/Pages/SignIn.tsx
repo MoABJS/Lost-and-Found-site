@@ -1,21 +1,25 @@
-import { Loader2, Search } from "lucide-react";
-import { Link } from "react-router-dom"
+import { Loader2 } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, type FormEvent } from "react";
 
 const SignIn = () => {
-const [email, setEmail]= useState("")
-const [password, setPassword]= useState("")
-const [isLoading, setIsLoading] = useState()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
-const handleSubmit = (e: FormEvent) => {
-    e.preventDefault()
-    alert("Signed In")
-}
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    alert("Signed In");
+    navigate("/dashboard");
+    setIsLoading(false);
+  };
 
-    return (
-        <div className="min-h-screen flex items-center justify-center px-4 py-5">
+  return (
+    <div className="min-h-screen flex items-center justify-center px-4 py-5">
       <div className="w-full max-w-md">
-        <div className="bg-[#2f3c4d] rounded-lg border border-border shadow-lg text-white">
+        <div className="bg-[#2f3c4d] rounded-lg shadow-lg text-white">
           <div className="text-center p-6 pb-4">
             <h1 className="font-sans font-bold text-2xl mb-2">Welcome Back</h1>
             <p className="font-serif text-gray-300">
@@ -25,7 +29,10 @@ const handleSubmit = (e: FormEvent) => {
           <div className="p-6 pt-2 space-y-4">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
-                <label htmlFor="email" className="font-serif block text-sm font-medium">
+                <label
+                  htmlFor="email"
+                  className="font-serif block text-sm font-medium"
+                >
                   Email
                 </label>
                 <input
@@ -39,7 +46,10 @@ const handleSubmit = (e: FormEvent) => {
                 />
               </div>
               <div className="space-y-2">
-                <label htmlFor="password" className="font-serif block text-sm font-medium">
+                <label
+                  htmlFor="password"
+                  className="font-serif block text-sm font-medium"
+                >
                   Password
                 </label>
                 <input
@@ -53,7 +63,10 @@ const handleSubmit = (e: FormEvent) => {
                 />
               </div>
               <div className="flex items-center justify-end">
-                <Link to="/forgot-password" className="font-serif text-sm text-[#4299e1]  hover:underline">
+                <Link
+                  to="/forgot-password"
+                  className="font-serif text-sm text-[#4299e1]  hover:underline"
+                >
                   Forgot password?
                 </Link>
               </div>
@@ -74,21 +87,30 @@ const handleSubmit = (e: FormEvent) => {
             </form>
 
             <div className="text-center">
-              <span className="font-serif text-muted-foreground">Don't have an account? </span>
-              <Link to="/signup" className="font-serif text-[#4299e1] hover:underline">
+              <span className="font-serif text-muted-foreground">
+                Don't have an account?{" "}
+              </span>
+              <Link
+                to="/sign-up"
+                className="font-serif text-[#4299e1] hover:underline"
+              >
                 Sign up
               </Link>
             </div>
 
             <div className="text-center">
-              <Link to="/" className="font-serif text-sm text-muted-foreground hover:text-foreground">
+              <Link
+                to="/"
+                className="font-serif text-sm text-muted-foreground hover:text-foreground"
+              >
                 ← Back to home
               </Link>
             </div>
           </div>
         </div>
       </div>
-    </div> );
-}
- 
+    </div>
+  );
+};
+
 export default SignIn;

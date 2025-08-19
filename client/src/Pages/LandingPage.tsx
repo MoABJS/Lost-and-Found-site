@@ -5,7 +5,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen">
       <nav className="flex justify-between items-center border-b border-b-gray-500 h-16 sticky top-0 z-50 bg-[#1a2d46] px-5" style={{ backgroundColor: "#2f3c4d" }}>
-            <div className="w-1/2 flex items-center justify-between">
+            <div className="md:w-2/3 lg:w-1/2 flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-[#4299e1] rounded-lg flex items-center justify-center">
                   <Search className="w-5 h-5 text-white" />
@@ -26,10 +26,10 @@ export default function LandingPage() {
               </div>
             </div>
             <div className="flex items-center space-x-3">
-              <Link className="px-4 py-2 text-white hover:text-gray-300 transition-colors font-serif" to="/sign-in">
+              <Link className="px-4 py-2 bg-red-900 text-white rounded-md hover:text-gray-300 transition-colors font-serif" to="/sign-in">
                   Log In
               </Link>
-              <Link className="px-6 py-2 text-white rounded-md hover:bg-blue-600 transition-colors font-serif" to="/sign-up">
+              <Link className="px-6 py-2 bg-[#4299e1] text-white rounded-md hover:bg-blue-600 transition-colors font-serif" to="/sign-up">
                   Sign Up
               </Link>
             </div>
@@ -173,7 +173,7 @@ export default function LandingPage() {
           <p className="font-serif text-xl text-gray-300 mb-8">
             Start your journey today and help make reunions happen.
           </p>
-          <Link to="/signup">
+          <Link to="/sign-up">
             <button className="px-8 py-3 bg-accent text-white rounded-md bg-blue-600 font-serif text-lg flex items-center justify-center mx-auto">
               <Users className="w-5 h-5 mr-2" />
               Get Started Now
@@ -191,7 +191,7 @@ export default function LandingPage() {
                 </div>
                 <span className="font-sans font-bold text-xl text-white">FindIt</span>
         </div>
-<div className="text-center">
+<div className="text-center hidden sm:flex sm:items-center">
             <p className="font-serif text-gray-300">
               © 2024 FindIt. All rights reserved. Made with ❤️ for our community.
             </p>
